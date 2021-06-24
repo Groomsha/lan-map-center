@@ -1,3 +1,22 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from viewgui.new_device import GUI_FormNewDevice as FormNewDevice
@@ -12,7 +31,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         self.setWindowModality(2)
 
         self.lastObjectbutton = None
-        self.ui_new_device.pushButtonAdd.clicked.connect(lambda:self.addInterface())
+        self.ui_new_device.pushButtonAdd.clicked.connect(lambda:self.buttonAddInterface())
     
     def contentsQtWidgetsSersh(self):
         self.nambsInterface = len(self.ui_new_device.interfaseList)-1
@@ -21,7 +40,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
             if i.objectName() == self.ui_new_device.interfaseList[self.nambsInterface]:
                 return i
 
-    def buttonDelShowHidden(self, chek):
+    def showHiddenButtonDel(self, chek):
         self.objectbutton = self.contentsQtWidgetsSersh()
         
         for i in self.objectbutton.children():
@@ -30,18 +49,18 @@ class NewDeviceController(QtWidgets.QFocusFrame):
 
             if i.objectName() == 'pushButtonDel_' + str(self.nambsInterface):
                 if chek == False:
-                    i.clicked.connect(lambda:self.deleteInterface(self.objectbutton))
+                    i.clicked.connect(lambda:self.buttonDeleteInterface(self.objectbutton))
 
                 self.lastObjectbutton = i
                 i.setHidden(False)
     
-    def addInterface(self):
+    def buttonAddInterface(self):
         self.objectBoxInterface = self.contentsQtWidgetsSersh()
         
         # Create new Interface
         self.interfasePosY = self.objectBoxInterface.y()
         self.ui_new_device.createNewInterface(self.interfasePosY+100)
-        self.buttonDelShowHidden(False)
+        self.showHiddenButtonDel(False)
 
         # Button move new Interface
         self.btnAddPosY = self.ui_new_device.pushButtonAdd.y()
@@ -51,11 +70,11 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         self.widgetContentMinHei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
         self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widgetContentMinHei+100))
 
-    def deleteInterface(self, currentObject):
+    def buttonDeleteInterface(self, currentObject):
         # Delete new Interface
         currentObject.deleteLater()
         self.ui_new_device.interfaseList.pop(-1)
-        self.buttonDelShowHidden(True)
+        self.showHiddenButtonDel(True)
         
         # Button remove new Interface
         self.btnAddPosY = self.ui_new_device.pushButtonAdd.y()

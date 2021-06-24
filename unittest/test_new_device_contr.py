@@ -17,9 +17,12 @@
 # under the License.
 #
 
-from viewgui.windowsgui.qt5_main_window import Ui_MainWindow as MainWindows
+import unittest
+import control.new_device_controller as ND_CONTROLLER
 
 
-class GUI_MainWindow(MainWindows):
-    def __init__(self) -> None:
-        super().__init__()
+class TestNewDeviceController(unittest.TestCase):
+    ### Test class NewDeviceController ###
+
+    def test_contentsQtWidgetsSersh(self):
+        pass

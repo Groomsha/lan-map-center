@@ -17,9 +17,8 @@
 # under the License.
 #
 
-from viewgui.windowsgui.qt5_main_window import Ui_MainWindow as MainWindows
 
-
-class GUI_MainWindow(MainWindows):
-    def __init__(self) -> None:
-        super().__init__()
+class CloseEventWindow():
+    def __init__(self, qt5frame) -> None:
+        self.window = qt5frame
+        self.window.close()
