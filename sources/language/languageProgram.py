@@ -17,10 +17,9 @@
 # under the License.
 #
 
+from sources.language.base_class_language import BaseLanguageClass
 
-from viewgui.base_class_view import BaseViewClass
 
-
-class GUI_MainWindow(BaseViewClass):
-    def __init__(self) -> None:
-        super().__init__()
+class LanguageProgram(BaseLanguageClass):
+    def __init__(self):
+        pass

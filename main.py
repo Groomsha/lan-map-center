@@ -21,14 +21,15 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from sources.language.languageProgram import LanguageProgram
+from sources.sqlevent.sqllite3_connect import SQLLite3Connect
 from control.main_windows_controller import MainWindowsController
-
-from sources.language import *
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
+    main_sql = SQLLite3Connect()
     main_language = LanguageProgram()
     main_controller = MainWindowsController()
 

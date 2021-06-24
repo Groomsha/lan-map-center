@@ -17,10 +17,8 @@
 # under the License.
 #
 
+from PyQt5 import QtCore, QtGui, QtWidgets
 
-from viewgui.base_class_view import BaseViewClass
 
-
-class GUI_MainWindow(BaseViewClass):
-    def __init__(self) -> None:
-        super().__init__()
+class BaseControllerClass(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
+    pass

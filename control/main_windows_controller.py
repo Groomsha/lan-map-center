@@ -17,14 +17,13 @@
 # under the License.
 #
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-
 from viewgui.main_windows import GUI_MainWindow as MainWindow
+from control.base_class_controller import BaseControllerClass
 from control.new_device_controller import NewDeviceController
-from viewgui.close_event_window import CloseEventWindow as Close
+from sources.window.close_event_window import CloseEventWindow as Close
 
 
-class MainWindowsController(QtWidgets.QMainWindow):
+class MainWindowsController(BaseControllerClass):
     def __init__(self, parent=None):
         super().__init__(parent)
         

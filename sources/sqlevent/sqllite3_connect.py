@@ -17,10 +17,14 @@
 # under the License.
 #
 
+from sqlite3 import *
+from sources.sqlevent.base_class_sql import BaseSQLClass
 
-from viewgui.base_class_view import BaseViewClass
 
+class SQLLite3Connect(BaseSQLClass):
+    def __init__(self):
+        pass
 
-class GUI_MainWindow(BaseViewClass):
-    def __init__(self) -> None:
-        super().__init__()
+    def SQLConnect(self):
+        return super().SQLConnect()
+    
