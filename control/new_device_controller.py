@@ -20,18 +20,24 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from viewgui.new_device import GUI_FormNewDevice as FormNewDevice
+from sources.window.close_event_window import CloseEventWindow as Close
+from control.new_device_data_controller import NewDeviceDataController as Data
 
 
 class NewDeviceController(QtWidgets.QFocusFrame):
-    def __init__(self, parent=None):
+    def __init__(self, sql, parent=None):
         super().__init__(parent)
 
         self.ui_new_device = FormNewDevice()
         self.ui_new_device.setupUi(self)
         self.setWindowModality(2)
 
+        self.sql_connect = sql
         self.lastObjectbutton = None
+
         self.ui_new_device.pushButtonAdd.clicked.connect(lambda:self.buttonAddInterface())
+        self.ui_new_device.buttonBoxNewDevice.accepted.connect(lambda:self.buttonBoxEvent('Seve'))
+        self.ui_new_device.buttonBoxNewDevice.rejected.connect(lambda:self.buttonBoxEvent('Close'))
     
     def contentsQtWidgetsSersh(self):
         self.nambsInterface = len(self.ui_new_device.interfaseList)-1
@@ -83,4 +89,11 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         # Remove Scroll Area
         self.widgetContentMinHei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
         self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widgetContentMinHei-100))
+    
+    def buttonBoxEvent(self, command):
+        if command == 'Seve':
+            self.new_device_data = Data()
+            self.sql_connect.SQLSaveData()
+        if command == 'Close':
+            Close(self)
         

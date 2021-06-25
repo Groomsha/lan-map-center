@@ -20,15 +20,16 @@
 from viewgui.main_windows import GUI_MainWindow as MainWindow
 from control.base_class_controller import BaseControllerClass
 from control.new_device_controller import NewDeviceController
-from sources.window.close_event_window import CloseEventWindow as Close
 
 
 class MainWindowsController(BaseControllerClass):
-    def __init__(self, parent=None):
+    def __init__(self, sql, parent=None):
         super().__init__(parent)
         
         self.ui_main_windows = MainWindow()
         self.ui_main_windows.setupUi(self)
+
+        self.sql_connect = sql
 
         self.ui_main_windows.pushButton_2.clicked.connect(lambda:self.buttonNewDevice())
         self.ui_main_windows.pushButton_3.clicked.connect(lambda:self.buttonEditDevice())
@@ -36,11 +37,8 @@ class MainWindowsController(BaseControllerClass):
         self.ui_main_windows.pushButton_5.clicked.connect(lambda:self.buttonNetworkMap())
 
     def buttonNewDevice(self):
-        self.new_device_controller = NewDeviceController()
+        self.new_device_controller = NewDeviceController(self.sql_connect)
         self.new_device_controller.show()
-
-        self.new_device_controller.ui_new_device.buttonBoxNewDevice.accepted.connect(lambda:self.buttonBoxEvent('Seve'))
-        self.new_device_controller.ui_new_device.buttonBoxNewDevice.rejected.connect(lambda:self.buttonBoxEvent('Close'))
 
     def buttonEditDevice(self):
         self.ui_main_windows.pushButton_3.setDisabled(True)
@@ -50,10 +48,4 @@ class MainWindowsController(BaseControllerClass):
 
     def buttonNetworkMap(self):
         self.ui_main_windows.pushButton_5.setDisabled(True)
-
-    def buttonBoxEvent(self, command):
-        if command == 'Seve':
-            print('Save New Device')
-        if command == 'Close':
-            Close(self.new_device_controller)
 

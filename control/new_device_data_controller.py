@@ -18,27 +18,5 @@
 #
 
 
-class BaseSQLClass():
-    def __init__(self) -> None:
-        self.connection = None
-        self.name_db = None
-        self.data = []
-
-    def SQLConnect(self, name_db):
-        self.name_db = name_db
-
-    def SQLSaveData(self):
-        pass
-
-    def SQLClose(self):
-        pass
-
-    def SQLCreateTable(self):
-        pass
-
-    def SQLQueryData(self, query, push_data = []):
-        pass
-
-    def SQLResultData(self, query):
-        pass
-    
+class NewDeviceDataController():
+    pass

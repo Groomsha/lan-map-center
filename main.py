@@ -30,8 +30,10 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
     main_sql = SQLLite3Connect()
+    main_sql.SQLConnect('equipment.db')
+
     main_language = LanguageProgram()
-    main_controller = MainWindowsController()
+    main_controller = MainWindowsController(main_sql)
 
     main_controller.show()
     sys.exit(app.exec_())

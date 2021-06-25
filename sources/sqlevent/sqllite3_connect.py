@@ -17,14 +17,28 @@
 # under the License.
 #
 
-from sqlite3 import *
+import sqlite3
+
 from sources.sqlevent.base_class_sql import BaseSQLClass
 
 
 class SQLLite3Connect(BaseSQLClass):
-    def __init__(self):
-        pass
+    def __init__(self) -> None:
+        super().__init__()
 
-    def SQLConnect(self):
-        return super().SQLConnect()
+    def SQLConnect(self, name_db):
+        self.connection = sqlite3.Connection(name_db)
+
+        return super().SQLConnect(name_db)
+    
+    def SQLSaveData(self):
+        self.connection.commit()
+        print('Save New Device')
+
+        return super().SQLSaveData()
+    
+    def SQLClose(self):
+        self.connection.close()
+
+        return super().SQLClose()
     
