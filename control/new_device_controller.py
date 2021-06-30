@@ -34,7 +34,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
 
         self.sql_connect = sql
         self.lastObjectbutton = None
-
+        
         self.ui_new_device.pushButtonAdd.clicked.connect(lambda:self.buttonAddInterface())
         self.ui_new_device.buttonBoxNewDevice.accepted.connect(lambda:self.buttonBoxEvent('Seve'))
         self.ui_new_device.buttonBoxNewDevice.rejected.connect(lambda:self.buttonBoxEvent('Close'))
@@ -92,7 +92,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
     
     def buttonBoxEvent(self, command):
         if command == 'Seve':
-            self.new_device_data = Data()
+            self.new_device_data = Data(self.ui_new_device)
             self.sql_connect.SQLSaveData()
         if command == 'Close':
             Close(self)
