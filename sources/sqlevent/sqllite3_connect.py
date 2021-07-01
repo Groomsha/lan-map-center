@@ -33,7 +33,7 @@ class SQLLite3Connect(BaseSQLClass):
     
     def SQLSaveData(self):
         self.connection.commit()
-        print('Save New Device')
+        print('\nSave New Device\n')
 
         return super().SQLSaveData()
     

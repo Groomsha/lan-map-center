@@ -23,7 +23,6 @@ class NewDeviceDataController():
         self.form_nd = ui
 
         self.box_nd = BoxNewDevice(self.form_nd)
-        self.box_iz = BoxInterfaceZero(self.form_nd)
         self.box_iz = BoxInterfaceAdd(self.form_nd)
 
 
@@ -39,29 +38,42 @@ class BoxNewDevice():
         }
 
         return self.data_box_ND
-    
 
-class BoxInterfaceZero():
-    def __init__(self, ui) -> None:
-        self.form_nd = ui
-    
-    def getInterfaceZeroND(self):
-        self.data_interface_zero_ND = {
-            'Interface_0': self.form_nd.comboBoxInterface_0.currentText(),
-            'InterOne_0': self.form_nd.comboBoxInterOne_0.currentText(),
-            'InterTwo_0': self.form_nd.comboBoxInterTwo_0.currentText(),
-            'InterThree_0': self.form_nd.comboBoxInterThree_0.currentText(),
-            'Pv4_0': self.form_nd.lineEditIPv4_0.text(),
-            'Mask_0': self.form_nd.lineEditMask_0.text(),
-            'IPv6_0': self.form_nd.lineEditIPv6_0.text(),
-            'tPrefix_0': self.form_nd.lineEditPrefix_0.text()
-        }
-
-        return self.data_interface_zero_ND
 
 class BoxInterfaceAdd():
     def __init__(self, ui) -> None:
         self.form_nd = ui
+        self.list_nd = ui.interfaseList
+
+        self.getInterfaceAddND()
     
     def getInterfaceAddND(self):
-        pass
+        self.data_interface_ND = {}
+
+        for group in self.list_nd:
+            if group == 'groupBoxInterface_0':
+                self.data_interface_ND['Interface_0'] = self.form_nd.comboBoxInterface_0.currentText()
+                self.data_interface_ND['InterOne_0'] = self.form_nd.comboBoxInterOne_0.currentText(),
+                self.data_interface_ND['InterTwo_0'] = self.form_nd.comboBoxInterTwo_0.currentText(),
+                self.data_interface_ND['InterThree_0'] = self.form_nd.comboBoxInterThree_0.currentText(),
+                self.data_interface_ND['Pv4_0'] = self.form_nd.lineEditIPv4_0.text(),
+                self.data_interface_ND['Mask_0'] = self.form_nd.lineEditMask_0.text(),
+                self.data_interface_ND['IPv6_0'] = self.form_nd.lineEditIPv6_0.text(),
+                self.data_interface_ND['Prefix_0'] = self.form_nd.lineEditPrefix_0.text()
+        
+
+            elif group != 'groupBoxInterface_0':
+                for widget in self.form_nd.widgetContentsNewDevice.children():
+                    if widget.objectName() == f'groupBoxInterface_{group[18:]}':
+
+                        for child in widget.children():
+                            if child.objectName() == f'comboBoxInterface_{group[18:]}':
+                                self.data_interface_ND[f'Interface_{group[18:]}'] = child.currentText()
+                            elif child.objectName() == f'comboBoxInterOne_{group[18:]}':
+                                self.data_interface_ND[f'InterOne_{group[18:]}'] = child.currentText()
+                            elif child.objectName() == f'comboBoxInterTwo_{group[18:]}':
+                                self.data_interface_ND[f'InterTwo_{group[18:]}'] = child.currentText()
+        
+        for key, val in self.data_interface_ND.items():
+            print(f'Key: {key}')
+            print(f'Value: {val}\n')
