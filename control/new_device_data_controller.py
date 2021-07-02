@@ -22,11 +22,11 @@ class NewDeviceDataController():
     def __init__(self, ui) -> None:
         self.form_nd = ui
 
-        self.box_nd = BoxNewDevice(self.form_nd)
+        self.box_nd = BoxNewDeviceAdd(self.form_nd)
         self.box_iz = BoxInterfaceAdd(self.form_nd)
 
 
-class BoxNewDevice():
+class BoxNewDeviceAdd():
     def __init__(self, ui) -> None:
         self.form_nd = ui
     
@@ -44,8 +44,6 @@ class BoxInterfaceAdd():
     def __init__(self, ui) -> None:
         self.form_nd = ui
         self.list_nd = ui.interfaseList
-
-        self.getInterfaceAddND()
     
     def getInterfaceAddND(self):
         self.data_interface_ND = {}
@@ -73,7 +71,15 @@ class BoxInterfaceAdd():
                                 self.data_interface_ND[f'InterOne_{group[18:]}'] = child.currentText()
                             elif child.objectName() == f'comboBoxInterTwo_{group[18:]}':
                                 self.data_interface_ND[f'InterTwo_{group[18:]}'] = child.currentText()
+                            elif child.objectName() == f'comboBoxInterThree_{group[18:]}':
+                                self.data_interface_ND[f'InterThree_{group[18:]}'] = child.currentText()
+                            elif child.objectName() == f'lineEditIPv4_{group[18:]}':
+                                self.data_interface_ND[f'Pv4_{group[18:]}'] = child.text()
+                            elif child.objectName() == f'lineEditMask_{group[18:]}':
+                                self.data_interface_ND[f'Mask_{group[18:]}'] = child.text()
+                            elif child.objectName() == f'lineEditIPv6_{group[18:]}':
+                                self.data_interface_ND[f'IPv6_{group[18:]}'] = child.text()
+                            elif child.objectName() == f'lineEditPrefix_{group[18:]}':
+                                self.data_interface_ND[f'Prefix_{group[18:]}'] = child.text()
         
-        for key, val in self.data_interface_ND.items():
-            print(f'Key: {key}')
-            print(f'Value: {val}\n')
+        return self.data_interface_ND
