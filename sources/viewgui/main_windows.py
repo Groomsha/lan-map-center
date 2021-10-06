@@ -17,6 +17,15 @@
 # under the License.
 #
 
+"""
+Project Name: 'lan-map'
+Version: 0.1
+
+Description: Network map creation application
+
+Ihor Cheberiak (c) 2021
+https://www.linkedin.com/in/ihor-cheberiak/
+"""
 
 from sources.viewgui.base_class_view import BaseViewClass
 

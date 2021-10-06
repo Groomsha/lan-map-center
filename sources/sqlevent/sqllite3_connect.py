@@ -17,6 +17,16 @@
 # under the License.
 #
 
+"""
+Project Name: 'lan-map'
+Version: 0.1
+
+Description: Network map creation application
+
+Ihor Cheberiak (c) 2021
+https://www.linkedin.com/in/ihor-cheberiak/
+"""
+
 import sqlite3
 
 from sources.sqlevent.base_class_sql import BaseSQLClass
