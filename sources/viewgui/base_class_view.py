@@ -17,10 +17,9 @@
 # under the License.
 #
 
+from sources.viewgui.windowsgui.qt5_main_window import Ui_MainWindow
+from sources.viewgui.windowsgui.qt5_new_device import Ui_FormNewDevice
 
-from viewgui.base_class_view import BaseViewClass
 
-
-class GUI_MainWindow(BaseViewClass):
-    def __init__(self) -> None:
-        super().__init__()
+class BaseViewClass(Ui_MainWindow, Ui_FormNewDevice):
+    pass

@@ -18,7 +18,7 @@
 #
 
 
-class CloseEventWindow():
+class CloseEventWindow:
     def __init__(self, qt5frame) -> None:
         self.window = qt5frame
         self.window.close()

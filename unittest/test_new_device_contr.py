@@ -18,7 +18,6 @@
 #
 
 import unittest
-import control.new_device_controller as ND_CONTROLLER
 
 
 class TestNewDeviceController(unittest.TestCase):

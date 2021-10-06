@@ -19,18 +19,18 @@
 
 import sys
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 from sources.language.languageProgram import LanguageProgram
 from sources.sqlevent.sqllite3_connect import SQLLite3Connect
-from control.main_windows_controller import MainWindowsController
+from sources.control.main_windows_controller import MainWindowsController
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
     main_sql = SQLLite3Connect()
-    main_sql.SQLConnect('equipment.db')
+    main_sql.SQLConnect('hardware.db')
 
     main_language = LanguageProgram()
     main_controller = MainWindowsController(main_sql)

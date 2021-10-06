@@ -18,7 +18,7 @@
 #
 
 
-class BaseSQLClass():
+class BaseSQLClass:
     def __init__(self) -> None:
         self.connection = None
         self.name_db = None
@@ -36,7 +36,7 @@ class BaseSQLClass():
     def SQLCreateTable(self):
         pass
 
-    def SQLQueryData(self, query, push_data = []):
+    def SQLQueryData(self, query, push_data=[]):
         pass
 
     def SQLResultData(self, query):

@@ -18,7 +18,7 @@
 #
 
 
-class NewDeviceDataController():
+class NewDeviceDataController:
     def __init__(self, ui) -> None:
         self.form_nd = ui
 
@@ -26,7 +26,7 @@ class NewDeviceDataController():
         self.box_iz = BoxInterfaceAdd(self.form_nd)
 
 
-class BoxNewDeviceAdd():
+class BoxNewDeviceAdd:
     def __init__(self, ui) -> None:
         self.form_nd = ui
     
@@ -40,13 +40,13 @@ class BoxNewDeviceAdd():
         return self.data_box_ND
 
 
-class BoxInterfaceAdd():
+class BoxInterfaceAdd:
     def __init__(self, ui) -> None:
         self.form_nd = ui
         self.list_nd = ui.interfaseList
     
     def getInterfaceAddND(self):
-        self.data_interface_ND = {}
+        self.data_interface_ND= {}
 
         for group in self.list_nd:
             if group == 'groupBoxInterface_0':

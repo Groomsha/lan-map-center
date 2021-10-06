@@ -17,9 +17,9 @@
 # under the License.
 #
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
-from viewgui.windowsgui.qt5_new_device import Ui_FormNewDevice as FormNewDevice
+from sources.viewgui.windowsgui.qt5_new_device import Ui_FormNewDevice as FormNewDevice
 
 
 class GUI_FormNewDevice(FormNewDevice):

@@ -18,5 +18,5 @@
 #
 
 
-class BaseLanguageClass():
+class BaseLanguageClass:
     pass
