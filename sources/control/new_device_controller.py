@@ -29,20 +29,21 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtCore, QtWidgets
 
-from sources.viewgui.new_device import GUI_FormNewDevice as FormNewDevice
+from sources.viewgui.ui_table_new_device import UI_TableNewDevice
 from sources.window.close_event_window import CloseEventWindow as Close
 from sources.control.new_device_data_controller import NewDeviceDataController as Data
 
 
 class NewDeviceController(QtWidgets.QFocusFrame):
-    def __init__(self, sql, parent=None):
+    def __init__(self, language, sql, parent=None):
         super().__init__(parent)
 
-        self.ui_new_device = FormNewDevice()
+        self.ui_new_device = UI_TableNewDevice()
         self.ui_new_device.setupUi(self)
         self.setWindowModality(2)
 
-        self.sql_connect = sql
+        self.connect_sql = sql
+        self.language_app = language
         self.lastObjectbutton = None
         
         self.ui_new_device.pushButtonAdd.clicked.connect(lambda: self.buttonAddInterface())
@@ -103,7 +104,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
     def buttonBoxEvent(self, command):
         if command == 'Seve':
             self.new_device_data = Data(self.ui_new_device)
-            self.sql_connect.save_data_sql()
+            self.connect_sql.save_data_sql()
         if command == 'Close':
             Close(self)
         

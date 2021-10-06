@@ -31,8 +31,8 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from sources.language.language_program_en import LanguageProgramEN
 from sources.sqlevent.sqllite3_connect import SQLLite3Connect
+from sources.language.language_program_en import LanguageProgramEN
 from sources.control.main_windows_controller import MainWindowsController
 
 

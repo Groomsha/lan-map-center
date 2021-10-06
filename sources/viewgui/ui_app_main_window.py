@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/mnt/c/Documents and Settings/icheberiak/Sources/Python/lan-map/viewgui/ui-windows/qt5-main-window.ui'
+# Form implementation generated from reading ui file '/mnt/c/Documents and Settings/icheberiak/Sources/Python/lan-map/viewgui/ui-windows/gui_app_main_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_AppMainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(860, 700)

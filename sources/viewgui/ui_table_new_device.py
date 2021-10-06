@@ -29,10 +29,10 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtCore, QtWidgets
 
-from sources.viewgui.windowsgui.qt5_new_device import Ui_FormNewDevice as FormNewDevice
+from sources.viewgui.ui_form_new_device import Ui_FormNewDevice as FormNewDevice
 
 
-class GUI_FormNewDevice(FormNewDevice):
+class UI_TableNewDevice(FormNewDevice):
     def __init__(self) -> None:
         super().__init__()
         

@@ -31,4 +31,8 @@ from PyQt5 import QtWidgets
 
 
 class BaseControllerClass(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
-    pass
+    def __init__(self, language, sql, parent=None):
+        super().__init__(parent)
+
+        self.connect_sql = sql
+        self.language_app = language

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/mnt/c/Documents and Settings/icheberiak/Sources/Python/lan-map/viewgui/windowsgui/qt5-new-device.ui'
+# Form implementation generated from reading ui file '/mnt/c/Documents and Settings/icheberiak/Sources/Python/lan-map/viewgui/gui_windows/gui_form_new_device.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
