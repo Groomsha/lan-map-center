@@ -40,16 +40,17 @@ class MainApp:
     def __init__(self):
         self.language = LanguageProgramEN()
         self.data_sql = SQLLite3Connect()
+        self.application = None
 
-        self.application = QtWidgets.QApplication(sys.argv)
-        self.main_controller = MainWindowsController(self.language, self.data_sql)
+        self.qt_main_app = QtWidgets.QApplication(sys.argv)
 
     def run_app(self):
         self.data_sql.connect_sql('hardware.db')
 
-        self.main_controller.show()
+        self.application = MainWindowsController(self.language, self.data_sql)
+        self.application.show()
 
-        sys.exit(self.application.exec_())
+        sys.exit(self.qt_main_app.exec_())
 
 
 if __name__ == "__main__":
