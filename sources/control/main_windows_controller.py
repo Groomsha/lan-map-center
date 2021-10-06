@@ -33,7 +33,7 @@ from sources.control.new_device_controller import NewDeviceController
 
 
 class MainWindowsController(BaseControllerClass):
-    def __init__(self, sql, parent=None):
+    def __init__(self, language, sql, parent=None):
         super().__init__(parent)
         
         self.ui_main_windows = MainWindow()

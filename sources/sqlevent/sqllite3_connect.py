@@ -29,26 +29,20 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 import sqlite3
 
-from sources.sqlevent.base_class_sql import BaseSQLClass
+from sources.sqlevent.base_class_sql import BaseClassSQL
 
 
-class SQLLite3Connect(BaseSQLClass):
+class SQLLite3Connect(BaseClassSQL):
     def __init__(self) -> None:
         super().__init__()
 
-    def SQLConnect(self, name_db):
+    def connect_sql(self, name_db: str):
         self.connection = sqlite3.Connection(name_db)
 
-        return super().SQLConnect(name_db)
-    
-    def SQLSaveData(self):
+    def save_data_sql(self):
         self.connection.commit()
         print('\nSave New Device\n')
 
-        return super().SQLSaveData()
-    
-    def SQLClose(self):
+    def close_sql(self):
         self.connection.close()
-
-        return super().SQLClose()
     

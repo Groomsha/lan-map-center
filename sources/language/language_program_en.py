@@ -27,9 +27,9 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
-from sources.language.base_class_language import BaseLanguageClass
+from sources.language.base_class_language import BaseClassLanguage
 
 
-class LanguageProgram(BaseLanguageClass):
+class LanguageProgramEN(BaseClassLanguage):
     def __init__(self):
-        pass
+        super().__init__()

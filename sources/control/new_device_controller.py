@@ -103,7 +103,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
     def buttonBoxEvent(self, command):
         if command == 'Seve':
             self.new_device_data = Data(self.ui_new_device)
-            self.sql_connect.SQLSaveData()
+            self.sql_connect.save_data_sql()
         if command == 'Close':
             Close(self)
         

@@ -28,5 +28,6 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 
-class BaseLanguageClass:
-    pass
+class BaseClassLanguage:
+    def __init__(self):
+        pass

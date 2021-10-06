@@ -27,7 +27,7 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 
 class BaseControllerClass(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):

@@ -28,27 +28,27 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 
-class BaseSQLClass:
+class BaseClassSQL:
     def __init__(self) -> None:
         self.connection = None
         self.name_db = None
         self.data = []
 
-    def SQLConnect(self, name_db):
+    def connect_sql(self, name_db: str):
         self.name_db = name_db
 
-    def SQLSaveData(self):
+    def save_data_sql(self):
         pass
 
-    def SQLClose(self):
+    def close_sql(self):
         pass
 
-    def SQLCreateTable(self):
+    def create_table_sql(self):
         pass
 
-    def SQLQueryData(self, query, push_data=[]):
+    def query_data_sql(self, query, push_data: list):
         pass
 
-    def SQLResultData(self, query):
+    def result_data_sql(self, query):
         pass
     
