@@ -27,27 +27,34 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
+from PyQt5 import QtWidgets
+
 from sources.viewgui.ui_app_main_window import Ui_AppMainWindow
-from sources.control.base_class_controller import BaseControllerClass
 from sources.control.new_device_controller import NewDeviceController
 
 
-class MainWindowsController(BaseControllerClass):
-    def __init__(self, language, sql):
-        super().__init__(language, sql)
+class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
+    def __init__(self, language, sql, parent=None):
+        super().__init__(parent)
+
+        self.connect_sql = sql
+        self.language_app = language
+        self.ui_new_device_controller = None
 
         self.ui_main_windows = Ui_AppMainWindow()
         self.ui_main_windows.setupUi(self)
 
-        self.new_device_controller = NewDeviceController(self.language_app, self.connect_sql)
+        self.push_button_controller()
 
+    def push_button_controller(self):
         self.ui_main_windows.pushButton_2.clicked.connect(lambda: self.button_new_device())
         self.ui_main_windows.pushButton_3.clicked.connect(lambda: self.button_edit_device())
         self.ui_main_windows.pushButton_4.clicked.connect(lambda: self.button_delete_device())
         self.ui_main_windows.pushButton_5.clicked.connect(lambda: self.button_network_map())
 
     def button_new_device(self):
-        self.new_device_controller.show()
+        self.ui_new_device_controller = NewDeviceController(self)
+        self.ui_new_device_controller.show()
 
     def button_edit_device(self):
         self.ui_main_windows.pushButton_3.setDisabled(True)

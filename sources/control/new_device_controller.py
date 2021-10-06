@@ -35,74 +35,84 @@ from sources.control.new_device_data_controller import NewDeviceDataController a
 
 
 class NewDeviceController(QtWidgets.QFocusFrame):
-    def __init__(self, language, sql, parent=None):
+    def __init__(self, main_window, parent=None):
         super().__init__(parent)
+
+        self.new_device_data = None
+        self.object_button = None
+        self.number_interface = None
+        self.last_object_button = None
+        self.object_box_interface = None
+        self.interface_pos_y = None
+        self.btn_add_pos_y = None
+        self.widget_content_min_hei = None
+        self.connect_sql = main_window.connect_sql
+        self.language_app = main_window.language_app
 
         self.ui_new_device = UI_TableNewDevice()
         self.ui_new_device.setupUi(self)
         self.setWindowModality(2)
-
-        self.connect_sql = sql
-        self.language_app = language
-        self.lastObjectbutton = None
         
-        self.ui_new_device.pushButtonAdd.clicked.connect(lambda: self.buttonAddInterface())
-        self.ui_new_device.buttonBoxNewDevice.accepted.connect(lambda: self.buttonBoxEvent('Seve'))
-        self.ui_new_device.buttonBoxNewDevice.rejected.connect(lambda: self.buttonBoxEvent('Close'))
+        self.push_button_controller()
+
+    def push_button_controller(self):
+        self.ui_new_device.pushButtonAdd.clicked.connect(lambda: self.button_add_interface())
+        self.ui_new_device.buttonBoxNewDevice.accepted.connect(lambda: self.button_box_event('Save'))
+        self.ui_new_device.buttonBoxNewDevice.rejected.connect(lambda: self.button_box_event('Close'))
     
-    def contentsQtWidgetsSersh(self):
-        self.nambsInterface = len(self.ui_new_device.interfaseList)-1
+    def contents_qt_widgets_search(self):
+        self.number_interface = len(self.ui_new_device.interfaseList)-1
         
         for i in self.ui_new_device.widgetContentsNewDevice.children():
-            if i.objectName() == self.ui_new_device.interfaseList[self.nambsInterface]:
+            if i.objectName() == self.ui_new_device.interfaseList[self.number_interface]:
                 return i
 
-    def showHiddenButtonDel(self, chek):
-        self.objectbutton = self.contentsQtWidgetsSersh()
+    def show_hidden_button_del(self, chek: bool):
+        self.object_button = self.contents_qt_widgets_search()
         
-        for i in self.objectbutton.children():
-            if self.nambsInterface >= 2 and self.lastObjectbutton.objectName() == 'pushButtonDel_' + str(self.nambsInterface-1):
-                self.lastObjectbutton.setHidden(True)
+        for i in self.object_button.children():
+            if self.number_interface >= 2 and self.last_object_button.objectName() == 'pushButtonDel_' + str(self.number_interface-1):
+                self.last_object_button.setHidden(True)
 
-            if i.objectName() == 'pushButtonDel_' + str(self.nambsInterface):
-                if chek == False:
-                    i.clicked.connect(lambda: self.buttonDeleteInterface(self.objectbutton))
+            if i.objectName() == 'pushButtonDel_' + str(self.number_interface):
+                if not chek:
+                    i.clicked.connect(lambda: self.button_delete_interface(self.object_button))
 
-                self.lastObjectbutton = i
+                self.last_object_button = i
                 i.setHidden(False)
     
-    def buttonAddInterface(self):
-        self.objectBoxInterface = self.contentsQtWidgetsSersh()
+    def button_add_interface(self):
+        self.object_box_interface = self.contents_qt_widgets_search()
         
         # Create new Interface
-        self.interfasePosY = self.objectBoxInterface.y()
-        self.ui_new_device.createNewInterface(self.interfasePosY+100)
-        self.showHiddenButtonDel(False)
+        self.interface_pos_y = self.object_box_interface.y()
+        self.ui_new_device.createNewInterface(self.interface_pos_y+100)
+        self.show_hidden_button_del(False)
 
         # Button move new Interface
-        self.btnAddPosY = self.ui_new_device.pushButtonAdd.y()
-        self.ui_new_device.pushButtonAdd.setGeometry(QtCore.QRect(450, self.btnAddPosY+100, 31, 23))
+        self.btn_add_pos_y = self.ui_new_device.pushButtonAdd.y()
+        self.ui_new_device.pushButtonAdd.setGeometry(QtCore.QRect(450, self.btn_add_pos_y+100, 31, 23))
 
         # Move Scroll Area
-        self.widgetContentMinHei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
-        self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widgetContentMinHei+100))
+        self.widget_content_min_hei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
+        self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widget_content_min_hei+100))
 
-    def buttonDeleteInterface(self, currentObject):
+    def button_delete_interface(self, currentObject):
         # Delete new Interface
         currentObject.deleteLater()
         self.ui_new_device.interfaseList.pop(-1)
-        self.showHiddenButtonDel(True)
+        self.show_hidden_button_del(True)
         
         # Button remove new Interface
-        self.btnAddPosY = self.ui_new_device.pushButtonAdd.y()
-        self.ui_new_device.pushButtonAdd.setGeometry(QtCore.QRect(450, self.btnAddPosY-100, 31, 23))
+        self.btn_add_pos_y = self.ui_new_device.pushButtonAdd.y()
+        self.ui_new_device.pushButtonAdd.setGeometry(QtCore.QRect(450, self.btn_add_pos_y-100, 31, 23))
 
         # Remove Scroll Area
-        self.widgetContentMinHei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
-        self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widgetContentMinHei-100))
+        self.widget_content_min_hei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
+        self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widget_content_min_hei-100))
     
-    def buttonBoxEvent(self, command):
-        if command == 'Seve':
+    def button_box_event(self, command):
+        if command == 'Save':
             self.new_device_data = Data(self.ui_new_device)
             self.connect_sql.save_data_sql()
         if command == 'Close':
