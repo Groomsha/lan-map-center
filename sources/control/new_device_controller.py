@@ -97,9 +97,9 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         self.widget_content_min_hei = self.ui_new_device.widgetContentsNewDevice.minimumHeight()
         self.ui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, self.widget_content_min_hei+100))
 
-    def button_delete_interface(self, currentObject):
+    def button_delete_interface(self, current_object):
         # Delete new Interface
-        currentObject.deleteLater()
+        current_object.deleteLater()
         self.ui_new_device.interfaseList.pop(-1)
         self.show_hidden_button_del(True)
         

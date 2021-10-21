@@ -40,12 +40,12 @@ class MainApp:
     def __init__(self):
         self.language = LanguageProgramEN()
         self.data_sql = SQLLite3Connect()
+        self.qt_main_app = None
         self.application = None
-
-        self.qt_main_app = QtWidgets.QApplication(sys.argv)
 
     def run_app(self):
         self.data_sql.connect_sql('hardware.db')
+        self.qt_main_app = QtWidgets.QApplication(sys.argv)
 
         self.application = MainWindowsController(self.language, self.data_sql)
         self.application.show()

@@ -39,8 +39,10 @@ class NewDeviceDataController:
 class BoxNewDeviceAdd:
     def __init__(self, ui) -> None:
         self.form_nd = ui
-    
-    def getDataBoxND(self):
+
+        self.data_box_ND = None
+
+    def get_data_box_nd(self):
         self.data_box_ND = {
             'Vendor': self.form_nd.comboBoxVendor.currentText(),
             'Type': self.form_nd.comboBoxType.currentText(),
@@ -54,10 +56,10 @@ class BoxInterfaceAdd:
     def __init__(self, ui) -> None:
         self.form_nd = ui
         self.list_nd = ui.interfaseList
-    
-    def getInterfaceAddND(self):
-        self.data_interface_ND= {}
 
+        self.data_interface_ND = {}
+
+    def get_interface_add_nd(self):
         for group in self.list_nd:
             if group == 'groupBoxInterface_0':
                 self.data_interface_ND['Interface_0'] = self.form_nd.comboBoxInterface_0.currentText()
@@ -68,8 +70,6 @@ class BoxInterfaceAdd:
                 self.data_interface_ND['Mask_0'] = self.form_nd.lineEditMask_0.text(),
                 self.data_interface_ND['IPv6_0'] = self.form_nd.lineEditIPv6_0.text(),
                 self.data_interface_ND['Prefix_0'] = self.form_nd.lineEditPrefix_0.text()
-        
-
             elif group != 'groupBoxInterface_0':
                 for widget in self.form_nd.widgetContentsNewDevice.children():
                     if widget.objectName() == f'groupBoxInterface_{group[18:]}':
@@ -91,5 +91,5 @@ class BoxInterfaceAdd:
                                 self.data_interface_ND[f'IPv6_{group[18:]}'] = child.text()
                             elif child.objectName() == f'lineEditPrefix_{group[18:]}':
                                 self.data_interface_ND[f'Prefix_{group[18:]}'] = child.text()
-        
+
         return self.data_interface_ND
