@@ -1,6 +1,6 @@
-from .controller.main_windows.main_windows_controller import *
-from .controller.new_device.new_device_controller import *
-from .controller.new_device.new_device_data_controller import *
+from .controller.main_window.main_window_controller import *
+from .controller.new_device_window.new_device_controller import *
+from .controller.new_device_window.new_device_data_controller import *
 
 from .service.close_event_window import *
 from .service.language_event_window import *

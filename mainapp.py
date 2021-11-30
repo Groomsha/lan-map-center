@@ -34,7 +34,7 @@ from PyQt5 import QtWidgets
 from sources.settings import Settings
 from sources.sqlevent.sqllite3_connect import SQLLite3Connect
 from sources.service.language_event_window import LanguageEventWindow
-from sources.controller.main_windows.main_windows_controller import MainWindowsController
+from sources.controller.main_window.main_window_controller import MainWindowsController
 
 
 class MainApp:
@@ -42,6 +42,7 @@ class MainApp:
         self.language_app = LanguageEventWindow()
         self.data_sql_app = SQLLite3Connect()
         self.settings_app = Settings()
+
         self.qt_main_app = None
         self.application = None
 

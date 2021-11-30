@@ -30,7 +30,8 @@ https://www.linkedin.com/in/ihor-cheberiak/
 from PyQt5 import QtWidgets
 
 from sources.viewgui.app_main_window.ui_app_main_window import Ui_AppMainWindow
-from sources.controller.new_device.new_device_controller import NewDeviceController
+from sources.controller.main_window.button_main_window import ButtonMainWindow
+from sources.controller.new_device_window.new_device_controller import NewDeviceController
 
 
 class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
@@ -40,28 +41,11 @@ class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
         self.connect_sql = sql
         self.language_app = language
         self.settings_app = settings
-        self.ui_new_device_controller = None
 
-        self.ui_main_windows = Ui_AppMainWindow()
-        self.ui_main_windows.setupUi(self)
+        self.gui_main_windows = Ui_AppMainWindow()
+        self.gui_main_windows.setupUi(self)
 
-        self.push_button_controller()
+        self.gui_new_device_controller = NewDeviceController(self)
 
-    def push_button_controller(self):
-        self.ui_main_windows.pushButton_2.clicked.connect(lambda: self.button_new_device())
-        self.ui_main_windows.pushButton_3.clicked.connect(lambda: self.button_edit_device())
-        self.ui_main_windows.pushButton_4.clicked.connect(lambda: self.button_delete_device())
-        self.ui_main_windows.pushButton_5.clicked.connect(lambda: self.button_network_map())
-
-    def button_new_device(self):
-        self.ui_new_device_controller = NewDeviceController(self)
-        self.ui_new_device_controller.show()
-
-    def button_edit_device(self):
-        self.ui_main_windows.pushButton_3.setDisabled(True)
-
-    def button_delete_device(self):
-        self.ui_main_windows.pushButton_4.setDisabled(True)
-
-    def button_network_map(self):
-        self.ui_main_windows.pushButton_5.setDisabled(True)
+        self.button_main_window = ButtonMainWindow(self)
+        self.button_main_window.push_button_main_window()
