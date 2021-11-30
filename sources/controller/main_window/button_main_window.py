@@ -27,12 +27,10 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
-from sources.controller.new_device_window.new_device_controller import NewDeviceController
-
 
 class ButtonMainWindow:
-	def __init__(self, gui) -> None:
-		self.main_window = gui
+	def __init__(self, main_gui) -> None:
+		self.main_window = main_gui
 
 	def push_button_main_window(self):
 		self.main_window.gui_main_windows.pushButton_2.clicked.connect(lambda: self.button_new_device())
