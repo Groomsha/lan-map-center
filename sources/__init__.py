@@ -10,3 +10,5 @@ from .sqlevent.sqllite3_connect import *
 from .viewgui.app_main_window.ui_app_main_window import *
 from .viewgui.table_new_device.ui_table_new_device import *
 from .viewgui.form_new_device.ui_form_new_device import *
+
+from .settings import *

@@ -34,11 +34,12 @@ from sources.controller.new_device.new_device_controller import NewDeviceControl
 
 
 class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
-    def __init__(self, language, sql, parent=None):
+    def __init__(self, language, sql, settings, parent=None):
         super().__init__(parent)
 
         self.connect_sql = sql
         self.language_app = language
+        self.settings_app = settings
         self.ui_new_device_controller = None
 
         self.ui_main_windows = Ui_AppMainWindow()
