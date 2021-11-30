@@ -28,17 +28,18 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 
-class NewDeviceDataController:
-    def __init__(self, ui) -> None:
-        self.form_nd = ui
+class SaveDataNewDevice:
+    def __init__(self, new_device_gui) -> None:
+        self.nd_window = new_device_gui
+        self.connect_sql = new_device_gui.connect_sql
 
-        self.box_nd = BoxNewDeviceAdd(self.form_nd)
-        self.box_iz = BoxInterfaceAdd(self.form_nd)
+        self.box_nd = BoxNewDeviceAdd(self.nd_window)
+        self.box_iz = BoxInterfaceAdd(self.nd_window)
 
 
 class BoxNewDeviceAdd:
-    def __init__(self, ui) -> None:
-        self.form_nd = ui
+    def __init__(self, new_device_gui) -> None:
+        self.form_nd = new_device_gui
 
         self.data_box_ND = None
 
@@ -53,9 +54,9 @@ class BoxNewDeviceAdd:
 
 
 class BoxInterfaceAdd:
-    def __init__(self, ui) -> None:
-        self.form_nd = ui
-        self.list_nd = ui.interfaseList
+    def __init__(self, new_device_gui) -> None:
+        self.form_nd = new_device_gui
+        self.list_nd = new_device_gui.gui_new_device.interfaseList
 
         self.data_interface_ND = {}
 

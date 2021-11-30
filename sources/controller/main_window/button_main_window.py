@@ -32,12 +32,6 @@ class ButtonMainWindow:
 	def __init__(self, main_gui) -> None:
 		self.main_window = main_gui
 
-	def push_button_main_window(self):
-		self.main_window.gui_main_windows.pushButton_2.clicked.connect(lambda: self.button_new_device())
-		self.main_window.gui_main_windows.pushButton_3.clicked.connect(lambda: self.button_edit_device())
-		self.main_window.gui_main_windows.pushButton_4.clicked.connect(lambda: self.button_delete_device())
-		self.main_window.gui_main_windows.pushButton_5.clicked.connect(lambda: self.button_network_map())
-
 	def button_new_device(self):
 		self.main_window.gui_new_device_controller.show()
 

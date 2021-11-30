@@ -47,5 +47,11 @@ class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
 
         self.gui_new_device_controller = NewDeviceController(self)
 
-        self.button_main_window = ButtonMainWindow(self)
-        self.button_main_window.push_button_main_window()
+        self.btn_main_window = ButtonMainWindow(self)
+        self.push_button_main_window()
+
+    def push_button_main_window(self):
+        self.gui_main_windows.pushButton_2.clicked.connect(lambda: self.btn_main_window.button_new_device())
+        self.gui_main_windows.pushButton_3.clicked.connect(lambda: self.btn_main_window.button_edit_device())
+        self.gui_main_windows.pushButton_4.clicked.connect(lambda: self.btn_main_window.button_delete_device())
+        self.gui_main_windows.pushButton_5.clicked.connect(lambda: self.btn_main_window.button_network_map())

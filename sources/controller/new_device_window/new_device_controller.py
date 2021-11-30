@@ -43,8 +43,13 @@ class NewDeviceController(QtWidgets.QFocusFrame):
 
         self.gui_new_device = UI_TableNewDevice()
         self.gui_new_device.setupUi(self)
-        self.setWindowModality(2) #!!!
+        self.setWindowModality(2)  # None
 
-        self.button_new_device = ButtonNewDevice(self)
-        self.button_new_device.push_button_new_device()
+        self.btn_new_device = ButtonNewDevice(self)
+        self.push_button_new_device()
+
+    def push_button_new_device(self):
+        self.gui_new_device.pushButtonAdd.clicked.connect(lambda: self.btn_new_device.button_add_interface())
+        self.gui_new_device.buttonBoxNewDevice.accepted.connect(lambda: self.btn_new_device.button_box_event('Save'))
+        self.gui_new_device.buttonBoxNewDevice.rejected.connect(lambda: self.btn_new_device.button_box_event('Close'))
         
