@@ -29,10 +29,8 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtWidgets
 
-from sources.viewgui.table_new_device.ui_table_new_device import UI_TableNewDevice
+from sources.viewgui.form_new_device.ui_table_new_device import UI_TableNewDevice
 from sources.controller.new_device_window.button_new_device import ButtonNewDevice
-
-from sources.controller.new_device_window.new_device_data_controller import NewDeviceDataController as Data
 
 
 class NewDeviceController(QtWidgets.QFocusFrame):
