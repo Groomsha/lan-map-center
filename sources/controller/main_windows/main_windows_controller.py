@@ -29,8 +29,8 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtWidgets
 
-from sources.viewgui.ui_app_main_window import Ui_AppMainWindow
-from sources.control.new_device_controller import NewDeviceController
+from sources.viewgui.app_main_window.ui_app_main_window import Ui_AppMainWindow
+from sources.controller.new_device.new_device_controller import NewDeviceController
 
 
 class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):

@@ -29,7 +29,7 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtCore, QtWidgets
 
-from sources.viewgui.ui_form_new_device import Ui_FormNewDevice as FormNewDevice
+from sources.viewgui.form_new_device.ui_form_new_device import Ui_FormNewDevice as FormNewDevice
 
 
 class UI_TableNewDevice(FormNewDevice):

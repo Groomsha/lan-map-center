@@ -32,19 +32,19 @@ import sys
 from PyQt5 import QtWidgets
 
 from sources.sqlevent.sqllite3_connect import SQLLite3Connect
-from sources.language.language_program_en import LanguageProgramEN
-from sources.control.main_windows_controller import MainWindowsController
+from sources.service.language_event_window import LanguageEventWindow
+from sources.controller.main_windows.main_windows_controller import MainWindowsController
 
 
 class MainApp:
     def __init__(self):
-        self.language = LanguageProgramEN()
+        self.language = LanguageEventWindow()
         self.data_sql = SQLLite3Connect()
         self.qt_main_app = None
         self.application = None
 
     def run_app(self):
-        self.data_sql.connect_sql('hardware.db')
+        self.data_sql.connect_sql('vendor_hardware.db')
         self.qt_main_app = QtWidgets.QApplication(sys.argv)
 
         self.application = MainWindowsController(self.language, self.data_sql)

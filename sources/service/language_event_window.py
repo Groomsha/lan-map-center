@@ -28,6 +28,6 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 
-class BaseClassLanguage:
+class LanguageEventWindow:
     def __init__(self):
         pass

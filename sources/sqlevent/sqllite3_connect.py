@@ -29,12 +29,12 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 import sqlite3
 
-from sources.sqlevent.base_class_sql import BaseClassSQL
 
-
-class SQLLite3Connect(BaseClassSQL):
+class SQLLite3Connect:
     def __init__(self) -> None:
-        super().__init__()
+        self.connection = None
+        self.name_db = None
+        self.data = []
 
     def connect_sql(self, name_db: str):
         self.connection = sqlite3.Connection(name_db)
