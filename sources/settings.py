@@ -31,3 +31,4 @@ https://www.linkedin.com/in/ihor-cheberiak/
 class Settings:
 	def __init__(self) -> None:
 		self.db_name = r"sources\sqlevent\vendor_hardware.db"
+		self.current_language = "en"
