@@ -27,7 +27,16 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
+import json
+
 
 class LanguageEventWindow:
-    def __init__(self):
-        pass
+    def __init__(self, settings) -> None:
+        self.language_dict = {}
+        self.settings = settings
+
+        self.update_language()
+
+    def update_language(self) -> None:
+        with open(f"sources/language/language_program_{self.settings.current_language}.json", "r") as j:
+            self.language_dict = json.load(j)

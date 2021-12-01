@@ -39,9 +39,9 @@ from sources.controller.main_window.main_window_controller import MainWindowsCon
 
 class MainApp:
     def __init__(self):
-        self.language_app = LanguageEventWindow()
-        self.data_sql_app = SQLLite3Connect()
         self.settings_app = Settings()
+        self.data_sql_app = SQLLite3Connect()
+        self.language_app = LanguageEventWindow(self.settings_app)
 
         self.qt_main_app = None
         self.application = None
