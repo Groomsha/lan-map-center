@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_FormNewDevice(object):
+class Ui_TableNewDevice(object):
     def setupUi(self, FormNewDevice):
         FormNewDevice.setObjectName("FormNewDevice")
         FormNewDevice.resize(551, 480)

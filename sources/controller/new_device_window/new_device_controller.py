@@ -29,7 +29,7 @@ https://www.linkedin.com/in/ihor-cheberiak/
 
 from PyQt5 import QtWidgets
 
-from sources.viewgui.form_new_device.ui_table_new_device import UI_TableNewDevice
+from sources.viewgui.form_new_device.ui_interface_new_device import UI_InterfaceNewDevice
 from sources.controller.new_device_window.button_new_device import ButtonNewDevice
 
 
@@ -41,7 +41,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         self.language_app = main_gui.language_app
         self.settings = main_gui.settings_app
 
-        self.gui_new_device = UI_TableNewDevice()
+        self.gui_new_device = UI_InterfaceNewDevice()
         self.gui_new_device.setupUi(self)
         self.setWindowModality(2)  # None
 
