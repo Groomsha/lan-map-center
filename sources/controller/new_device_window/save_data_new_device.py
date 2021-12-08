@@ -27,6 +27,8 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
+from typing import Optional, Dict
+
 
 class SaveDataNewDevice:
     def __init__(self, new_device_gui) -> None:
@@ -41,9 +43,9 @@ class BoxNewDeviceAdd:
     def __init__(self, new_device_gui) -> None:
         self.form_nd = new_device_gui
 
-        self.data_box_ND = None
+        self.data_box_ND: Optional = None
 
-    def get_data_box_nd(self):
+    def get_data_box_nd(self) -> Dict:
         self.data_box_ND = {
             'Vendor': self.form_nd.comboBoxVendor.currentText(),
             'Type': self.form_nd.comboBoxType.currentText(),
@@ -58,9 +60,9 @@ class BoxInterfaceAdd:
         self.form_nd = new_device_gui
         self.list_nd = new_device_gui.gui_new_device.interfaseList
 
-        self.data_interface_ND = {}
+        self.data_interface_ND: Dict = {}
 
-    def get_interface_add_nd(self):
+    def get_interface_add_nd(self) -> Dict:
         for group in self.list_nd:
             if group == 'groupBoxInterface_0':
                 self.data_interface_ND['Interface_0'] = self.form_nd.comboBoxInterface_0.currentText()

@@ -28,6 +28,7 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 import sys
+from typing import Optional
 
 from PyQt5 import QtWidgets
 
@@ -38,15 +39,15 @@ from sources.controller.main_window.main_window_controller import MainWindowsCon
 
 
 class MainApp:
-    def __init__(self):
+    def __init__(self) -> None:
         self.settings_app = Settings()
         self.data_sql_app = SQLLite3Connect()
         self.language_app = LanguageEventWindow(self.settings_app)
 
-        self.qt_main_app = None
-        self.application = None
+        self.qt_main_app: Optional = None
+        self.application: Optional = None
 
-    def run_app(self):
+    def run_app(self) -> None:
         self.qt_main_app = QtWidgets.QApplication(sys.argv)
         self.data_sql_app.connect_sql(self.settings_app.db_name)
 

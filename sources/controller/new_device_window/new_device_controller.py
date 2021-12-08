@@ -48,7 +48,7 @@ class NewDeviceController(QtWidgets.QFocusFrame):
         self.btn_new_device = ButtonNewDevice(self)
         self.push_button_new_device()
 
-    def push_button_new_device(self):
+    def push_button_new_device(self) -> None:
         self.gui_new_device.pushButtonAdd.clicked.connect(lambda: self.btn_new_device.button_add_interface())
         self.gui_new_device.buttonBoxNewDevice.accepted.connect(lambda: self.btn_new_device.button_box_event('Save'))
         self.gui_new_device.buttonBoxNewDevice.rejected.connect(lambda: self.btn_new_device.button_box_event('Close'))

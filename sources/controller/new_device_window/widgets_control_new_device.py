@@ -27,23 +27,25 @@ Ihor Cheberiak (c) 2021
 https://www.linkedin.com/in/ihor-cheberiak/
 """
 
+from typing import Optional, Any
+
 
 class WidgetsControlNewDevice:
 	def __init__(self, button) -> None:
 		self.nd_button = button
 
-		self.number_interface = None
-		self.object_button = None
-		self.last_object_button = None
+		self.number_interface: Optional = None
+		self.object_button: Optional = None
+		self.last_object_button: Optional = None
 
-	def search_current_interfase(self, new_device_gui):
+	def search_current_interfase(self, new_device_gui) -> Any:
 		self.number_interface = len(new_device_gui.interfaseList)-1
 
 		for i in new_device_gui.widgetContentsNewDevice.children():
 			if i.objectName() == new_device_gui.interfaseList[self.number_interface]:
 				return i
 
-	def show_hidden_button_del(self, new_device_gui, chek: bool):
+	def show_hidden_button_del(self, new_device_gui, chek: bool) -> None:
 		self.object_button = self.search_current_interfase(new_device_gui)
 
 		for i in self.object_button.children():

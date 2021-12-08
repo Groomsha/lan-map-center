@@ -39,8 +39,8 @@ class UI_TableNewDevice(Ui_FormNewDevice):
         self.interfaseList = ['groupBoxInterface_0']
         self._translate = QtCore.QCoreApplication.translate
 
-    def createNewInterface(self, x_pos):
-        intNamb = '_' + str(len(self.interfaseList))
+    def createNewInterface(self, x_pos: int) -> None:
+        intNamb: str = '_' + str(len(self.interfaseList))
         
         self.groupBoxInterface = QtWidgets.QGroupBox(self.widgetContentsNewDevice)
         self.groupBoxInterface.setGeometry(QtCore.QRect(0, x_pos, 491, 101))
@@ -177,7 +177,7 @@ class UI_TableNewDevice(Ui_FormNewDevice):
         self.retranslateCreateNewInterface()
         self.groupBoxInterface.setVisible(True)
 
-    def retranslateCreateNewInterface(self):
+    def retranslateCreateNewInterface(self) -> None:
         self.groupBoxInterface.setTitle(self._translate("FormNewDevice", "Interface-" + str(len(self.interfaseList)-1)))
 
         self.labelIPv4.setText(self._translate("FormNewDevice", "IPv4"))

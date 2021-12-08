@@ -32,14 +32,14 @@ class ButtonMainWindow:
 	def __init__(self, main_gui) -> None:
 		self.main_window = main_gui
 
-	def button_new_device(self):
+	def button_new_device(self) -> None:
 		self.main_window.gui_new_device_controller.show()
 
-	def button_edit_device(self):
+	def button_edit_device(self) -> None:
 		self.main_window.gui_main_windows.pushButton_3.setDisabled(True)
 
-	def button_delete_device(self):
+	def button_delete_device(self) -> None:
 		self.main_window.gui_main_windows.pushButton_4.setDisabled(True)
 
-	def button_network_map(self):
+	def button_network_map(self) -> None:
 		self.main_window.gui_main_windows.pushButton_5.setDisabled(True)

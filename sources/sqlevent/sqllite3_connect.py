@@ -28,21 +28,22 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 import sqlite3
+from typing import List, Optional
 
 
 class SQLLite3Connect:
     def __init__(self) -> None:
-        self.connection = None
-        self.name_db = None
-        self.data = []
+        self.connection: Optional = None
+        self.name_db: Optional = None
+        self.data: List = []
 
-    def connect_sql(self, name_db: str):
+    def connect_sql(self, name_db: str) -> None:
         self.connection = sqlite3.Connection(name_db)
 
-    def save_data_sql(self):
+    def save_data_sql(self) -> None:
         self.connection.commit()
         print('\nSave New Device\n')
 
-    def close_sql(self):
+    def close_sql(self) -> None:
         self.connection.close()
     

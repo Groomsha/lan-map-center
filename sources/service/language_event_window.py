@@ -28,11 +28,12 @@ https://www.linkedin.com/in/ihor-cheberiak/
 """
 
 import json
+from typing import Dict
 
 
 class LanguageEventWindow:
     def __init__(self, settings) -> None:
-        self.language_dict = {}
+        self.language_dict: Dict = {}
         self.settings = settings
 
         self.update_language()

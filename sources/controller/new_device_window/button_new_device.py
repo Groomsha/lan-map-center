@@ -41,7 +41,7 @@ class ButtonNewDevice:
 		self.nd_control = WidgetsControlNewDevice(self)
 		self.save_data = SaveDataNewDevice(self.nd_window)
 
-	def button_add_interface(self):
+	def button_add_interface(self) -> None:
 		object_box_interface = self.nd_control.search_current_interfase(self.nd_window.gui_new_device)
 
 		# Create new Interface
@@ -57,7 +57,7 @@ class ButtonNewDevice:
 		widget_content_min_hei = self.nd_window.gui_new_device.widgetContentsNewDevice.minimumHeight()
 		self.nd_window.gui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, widget_content_min_hei + 100))
 
-	def button_delete_interface(self, current_object):
+	def button_delete_interface(self, current_object) -> None:
 		# Delete new Interface
 		current_object.deleteLater()
 		self.nd_window.gui_new_device.interfaseList.pop(-1)
@@ -71,7 +71,7 @@ class ButtonNewDevice:
 		widget_content_min_hei = self.nd_window.gui_new_device.widgetContentsNewDevice.minimumHeight()
 		self.nd_window.gui_new_device.widgetContentsNewDevice.setMinimumSize(QtCore.QSize(0, widget_content_min_hei - 100))
 
-	def button_box_event(self, command):
+	def button_box_event(self, command) -> None:
 		if command == 'Save':
 			self.save_data.connect_sql.save_data_sql()  # Test str.
 		if command == 'Close':

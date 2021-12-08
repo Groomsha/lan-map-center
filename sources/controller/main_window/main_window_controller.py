@@ -35,7 +35,7 @@ from sources.controller.new_device_window.new_device_controller import NewDevice
 
 
 class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
-    def __init__(self, language, sql, settings, parent=None):
+    def __init__(self, language, sql, settings, parent=None) -> None:
         super().__init__(parent)
 
         self.connect_sql = sql
@@ -50,7 +50,7 @@ class MainWindowsController(QtWidgets.QMainWindow, QtWidgets.QFocusFrame):
         self.btn_main_window = ButtonMainWindow(self)
         self.push_button_main_window()
 
-    def push_button_main_window(self):
+    def push_button_main_window(self) -> None:
         self.gui_main_windows.pushButton_2.clicked.connect(lambda: self.btn_main_window.button_new_device())
         self.gui_main_windows.pushButton_3.clicked.connect(lambda: self.btn_main_window.button_edit_device())
         self.gui_main_windows.pushButton_4.clicked.connect(lambda: self.btn_main_window.button_delete_device())
