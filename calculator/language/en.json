@@ -1,0 +1,17 @@
+{
+  "cell_00": "Please enter something",
+  "cell_01": "Networks IPv4",
+  "cell_02": "Networks IPv6",
+  "cell_03": "Language",
+  "cell_04": "Return Main Menu",
+  "cell_05": "Exit",
+  "cell_06": "English",
+  "cell_07": "Ukrainian",
+  "cell_08": "Russian",
+  "cell_09": "Split IPv4 Subnet",
+  "cell_10": "Define IPv4 Subnet",
+  "cell_11": "Private addressing",
+  "cell_12": "Legacy addressing",
+  "cell_13": "Other addressing",
+  "cell_14": "Polish"
+}
